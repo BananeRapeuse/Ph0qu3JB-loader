@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        /* Mise en page générale */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Conteneur principal */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        /* Titre principal */
+        h1 {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        /* Logo du haut (échiquier) */
+        .logo {
+            width: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Section Install */
+        .install-section {
+            background-color: #1c1c1c;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Bouton Cydia */
+        .cydia-button {
+            display: flex;
+            align-items: center;
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Image icône Cydia */
+        .cydia-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        /* Texte Cydia */
+        .cydia-text {
+            font-size: 1.2em;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        /* Sous-titre Checkra1n */
+        .footer {
+            color: #aaa;
+            font-size: 0.8em;
+        }
+
+        /* Style pour la section de téléchargement */
+        .status {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .loading-wheel {
+            width: 30px;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo du haut -->
+        <img src="https://raw.githubusercontent.com/BananeRapeuse/Ph0qu3JB-loader/refs/heads/main/assets/IMG_2855.png" alt="logo" class="logo">
+
+        <!-- Titre principal -->
+        <h1>Loader</h1>
+
+        <!-- Section Install -->
+        <div class="install-section">
+            <!-- Bouton Cydia -->
+            <a id="cydiaButton" class="cydia-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Cydia_logo.png" alt="Cydia" class="cydia-icon">
+                <span class="cydia-text">Cydia</span>
+            </a>
+        </div>
+
+        <!-- Sous-titre Checkra1n Loader -->
+        <div class="footer">
+            Ph0qu3JB Loader 1.0
+        </div>
+
+        <!-- Zone de texte pour le statut du téléchargement -->
+        <div class="status" id="statusMessage"></div>
+
+    </div>
+
+    <script>
+        document.getElementById("cydiaButton").addEventListener("click", function(e) {
+            e.preventDefault(); // Empêche le lien de s'ouvrir immédiatement
+            
+            // Afficher "Downloading" avec la roue animée
+            var statusMessage = document.getElementById("statusMessage");
+            statusMessage.innerHTML = 'Downloading <img src="https://media.tenor.com/_62bXB8gnzoAAAAi/loading.gif" class="loading-wheel">';
+            
+            // Après 5 secondes, changer le texte à "Extracting"
+            setTimeout(function() {
+                statusMessage.innerHTML = 'Extracting...';
+            }, 5000);
+
+            // Après 7 secondes, enlever le message et ouvrir le lien
+            setTimeout(function() {
+                statusMessage.innerHTML = ''; // Effacer le message
+                window.location.href = "https://github.com/BananeRapeuse/ph0qu3jb-loader/raw/refs/heads/main/package-managers/cydia2v2free.mobileconfig"; // Ouvrir le lien
+            }, 7000);
+        });
+    </script>
+</body>
+</html>
